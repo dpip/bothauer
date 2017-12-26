@@ -1,0 +1,17 @@
+{
+  "name": "pip-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "slackbot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bot.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "botkit": "^0.6.7",
+    "google": "^2.1.0",
+    "twit": "^2.2.9"
+  }
+}
