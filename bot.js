@@ -1,7 +1,8 @@
 // Dependencies =========================
 var
     twit = require('twit'),
-    config = require('./config');
+    config = require('./config'),
+    boomhauer = require('./boomhauer');
 
 var Twitter = new twit(config);
 
@@ -20,17 +21,18 @@ var retweet = function() {
           // grab ID of tweet to retweet
             var retweetId = data.statuses[0].id_str;
             // Tell TWITTER to retweet
-            Twitter.post('statuses/retweet/:id', {
-                id: retweetId
-            }, function(err, response) {
-                if (response) {
-                    console.log('Retweeted!!!');
-                }
-                // if there was an error while tweeting
-                if (err) {
-                    console.log('Something went wrong while RETWEETING... Duplication maybe...');
-                }
-            });
+            console.log(data.statuses[0]);
+            // Twitter.post('statuses/retweet/:id', {
+            //     id: retweetId
+            // }, function(err, response) {
+            //     if (response) {
+            //         console.log('Retweeted!!!');
+            //     }
+            //     // if there was an error while tweeting
+            //     if (err) {
+            //         console.log('Something went wrong while RETWEETING... Duplication maybe...');
+            //     }
+            // });
         }
         // if unable to Search a tweet
         else {
@@ -59,7 +61,6 @@ var favoriteTweet = function(){
     // find tweets
     var tweet = data.statuses;
     var randomTweet = ranDom(tweet);   // pick a random tweet
-
     // if random tweet exists
     if(typeof randomTweet != 'undefined'){
       // Tell TWITTER to 'favorite'
